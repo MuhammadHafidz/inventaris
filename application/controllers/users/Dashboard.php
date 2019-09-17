@@ -57,10 +57,18 @@ class Dashboard extends CI_Controller {
       'PRUANG_OUT' => $this->input->post('date_out') ." " .$this->input->post('time_out'), 
       'STATUS_PRUANG' => 0
     ];
-    if ($this->M_pruang->add($data)) {
-      echo "<script>alert('Peminjaman Ruang Sukses')</script>";
-      redirect('users/dashboard','refresh');    
+    
+    $chkData = $this->M_pruang->chkPruang($data);
+    if ($chkData != null) {
+      echo "<script>alert('Ruang Telah dipinjam dari ".$chkData->PRUANG_IN." sampai ".$chkData->PRUANG_OUT."')</script>";
+      echo "<script>alert('Peminjaman Ruang GAGAL !')</script>";
+
+    }else {
+      if ($this->M_pruang->add($data)) {
+        echo "<script>alert('Peminjaman Ruang Sukses')</script>";
+      }
     }
+    redirect('users/dashboard','refresh');    
   }
 
   public function addPbarang()
@@ -74,10 +82,20 @@ class Dashboard extends CI_Controller {
       'PBARANG_OUT' => $this->input->post('date_out') ." " .$this->input->post('time_out'), 
       'STATUS_PBARANG' => 0
     ];
-    if ($this->M_pbarang->add($data)) {
-      echo "<script>alert('Peminjaman Barang Sukses')</script>";
-      redirect('users/dashboard','refresh');    
+    $chkData = $this->M_pbarang->chkPbarang($data);
+    if ($chkData != null) {
+      echo "<script>alert('Barang Telah dipinjam dari ".$chkData->PBARANG_IN." sampai ".$chkData->PBARANG_OUT."')</script>";
+      echo "<script>alert('Peminjaman Barang GAGAL !')</script>";
+
+      # code...
+    }else {
+      if ($this->M_pbarang->add($data)) {
+        echo "<script>alert('Peminjaman Barang Sukses')</script>";
+      }
     }
+    redirect('users/dashboard','refresh');    
+
+    
   }
 
 }

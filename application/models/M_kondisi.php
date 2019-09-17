@@ -10,6 +10,29 @@ class M_kondisi extends CI_Model {
     return $this->db->get('kondisi')->result();
   }
 
+  public function add($name)
+  {
+    $data = [
+      'KONDISI' => $name
+    ];
+
+    return $this->db->insert('kondisi',$data);
+  }
+
+  public function update($id, $nama)
+  {
+    $data = [
+      'KONDISI' => $nama
+    ];
+    $this->db->where('ID_KONDISI', $id);
+    return $this->db->update('kondisi', $data);
+  }
+  public function delete($id)
+  {
+    $this->db->where('ID_KONDISI', $id);
+    return $this->db->delete('kondisi');
+  }
+
 }
 
 /* End of file M_kondisi.php */

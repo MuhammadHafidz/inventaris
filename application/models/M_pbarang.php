@@ -14,6 +14,12 @@ class M_pbarang extends CI_Model {
     return $this->db->get()->result();
   }
 
+  public function chkPbarang($data)
+  {
+    $query = $this->db->query("SELECT * FROM p_barang WHERE ID_BARANG = ".$data['ID_BARANG']." and (PBARANG_IN <= '".$data['PBARANG_IN']."' and PBARANG_OUT >= '".$data['PBARANG_IN']."') OR (PBARANG_IN <= '".$data['PBARANG_OUT']."' and PBARANG_OUT >= '".$data['PBARANG_OUT']."')");
+    return $query->row();
+  }
+
   public function add($data)
   {
     return $this->db->insert('p_barang',$data);

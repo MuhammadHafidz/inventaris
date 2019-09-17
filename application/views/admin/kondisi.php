@@ -15,7 +15,7 @@
 							<img src="<?php echo base_url();?>utils/images/icon/logo.png" alt="Cool Admin" />
 					</a>
 			</div>
-			<?php $this->load->view('karyawan/menu')?>
+			<?php $this->load->view('admin/menu')?>
 	</aside>
         <!-- END MENU SIDEBAR-->
 
@@ -31,13 +31,13 @@
           <!-- //UPDATE -->
 					<div class="card" style="display:none;" id="update-form">
 						<div class="card-header">
-								<strong>Update</strong> Ruang
+								<strong>Update</strong> Kondisi
 						</div>
 						<div class="card-body card-block">
-							<form action="<?php echo base_url()?>users/ruang/update" method="POST" class="form-horizontal">
+							<form action="<?php echo base_url()?>users/jenis/update" method="POST" class="form-horizontal">
 								<div class="row form-group">
 									<div class="col col-md-3">
-										<label for="hf-email" class=" form-control-label">Id </label>
+										<label for="hf-email" class=" form-control-label">ID  </label>
 									</div>
 									<div class="col-12 col-md-9">
 										<input type="text" id="update_id" name="id" placeholder="0" class="form-control" required readonly>
@@ -45,28 +45,13 @@
                 </div>
                 <div class="row form-group">
 									<div class="col col-md-3">
-										<label for="hf-email" class=" form-control-label">Nama Ruang</label>
+										<label for="hf-email" class=" form-control-label">Kondisi</label>
 									</div>
 									<div class="col-12 col-md-9">
-										<input type="text" id="update_name" name="name" placeholder="ex : Ruang Giri 1" class="form-control" required>
+										<input type="text" id="update_kondisi" name="kondisi" placeholder="ex : Meja" class="form-control" required>
 									</div>
 								</div>
-								<div class="row form-group">
-												<div class="col col-md-3">
-														<label for="select" class=" form-control-label">Gedung</label>
-												</div>
-												<div class="col-12 col-md-9">
-														<select name="gedung" id="update_gedung" class="form-control">
-																<?php 
-																	foreach ($gedung as $result) {
-																		?>
-																		<option value="<?php echo $result->ID_GEDUNG?>"><?php echo $result->ID_GEDUNG. " - " .$result->NAMA_GEDUNG?></option>
-																		<?php
-																	}
-																?>
-														</select>
-												</div>
-											</div>
+
 						</div>
 						<div class="card-footer">
 							<button type="submit" class="btn btn-primary ">
@@ -82,33 +67,17 @@
             <!-- ADD GEDUNG -->
 						<div class="card" style="" id="add-form">
 							<div class="card-header">
-									<strong>Add</strong> new Ruang
+									<strong>Add</strong> New Kondisi
 							</div>
 							<div class="card-body card-block">
-									<form action="<?php echo base_url()?>users/ruang/add" method="POST" class="form-horizontal">
+									<form action="<?php echo base_url()?>users/jenis/add" method="POST" class="form-horizontal">
 											<div class="row form-group">
 													<div class="col col-md-3">
-															<label for="hf-email" class=" form-control-label">Nama Ruang</label>
+															<label for="hf-email" class=" form-control-label">Kondisi</label>
 													</div>
 													<div class="col-12 col-md-9">
-															<input type="text" id="hf-email" name="name" placeholder="ex : Ruang 201" class="form-control" required>
+															<input type="text" id="hf-email" name="kondisi" placeholder="ex : Kursi" class="form-control" required>
 													</div>
-											</div>
-											<div class="row form-group">
-												<div class="col col-md-3">
-														<label for="select" class=" form-control-label">Gedung</label>
-												</div>
-												<div class="col-12 col-md-9">
-														<select name="gedung" id="gedung" class="form-control">
-																<?php 
-																	foreach ($gedung as $result) {
-																		?>
-																		<option value="<?php echo $result->ID_GEDUNG?>"><?php echo $result->ID_GEDUNG. " - " .$result->NAMA_GEDUNG?></option>
-																		<?php
-																	}
-																?>
-														</select>
-												</div>
 											</div>
 							</div>
 							<div class="card-footer">
@@ -124,29 +93,25 @@
 										<table class="table table-borderless table-data3" id="myTable">
 												<thead>
 														<tr>
-																<th>No.</th>
-																<th>Id.</th>
-																<th>Ruang</th>
-																<th>Gedung</th>
+																<th>ID.</th>
+																<th>Kondisi</th>
 																<th>Action</th>
 														</tr>
 												</thead>
 												<tbody>
 														<?php $a=1; foreach($data as $result){?>
 																<tr>
-																		<td><?php echo $a;?></td>
-                                    <td><?php $id= $result->ID_RUANG;
+                                    <td><?php $id= $result->ID_KONDISI;
                                     echo $id;?></td>
-																		<td><?php $name = $result->NAMA_RUANG;
+																		<td><?php $name = $result->KONDISI;
                                     echo $name;?></td>
-																		<td><?php echo $result->NAMA_GEDUNG;?></td>
 																		<td class="process">
 																				
-																				<button name="update" type="button" class="btn btn-outline-warning" value="<?php echo $result->ID_RUANG;?>" onclick="showUpdate(<?php echo $id;?>,<?php echo $result->ID_GEDUNG;?>,'<?php echo $name;?>')">
+																				<button name="update" type="button" class="btn btn-outline-warning" onclick="showUpdate('<?php echo $id;?>','<?php echo $name;?>')">
                                         <i class="fas fa-edit"></i>&nbsp; Update</button>
                                         
 																				
-																				<button name="delete" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mediumModal" onclick="showDelete(<?php echo $id;?>,'<?php echo $name;?>')">
+																				<button name="delete" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mediumModal" onclick="showDelete('<?php echo $id;?>','<?php echo $name;?>')">
 																				<i class="fa fa-trash "></i>&nbsp; Delete</button>
 																		</td>
 																</tr>
@@ -174,7 +139,7 @@
 				<div class="modal-dialog modal-md" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="mediumModalLabel">Delete Ruang</h5>
+							<h5 class="modal-title" id="mediumModalLabel">Delete Kondisi</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -197,13 +162,12 @@
 <?php $this->load->view('end-js');?>
   <!-- Jquery JS-->
 <script>
-  function showUpdate(id ,gedung , name) {
+  function showUpdate(id  , name) {
     document.getElementById("update-form").style.display='block';
     document.getElementById("add-form").style.display='none';
 
     document.getElementById("update_id").value=id;
-    document.getElementById("update_gedung").value=gedung;
-    document.getElementById("update_name").value=name;
+    document.getElementById("update_kondisi").value=name;
   }
 
   function closeUpdate() {
@@ -218,7 +182,7 @@
 
 	function delete_data() {
 		id = document.getElementById("id_delete").innerHTML;
-		window.location.href = "<?php echo base_url()?>users/ruang/delete?id=" +id;
+		window.location.href = "<?php echo base_url()?>users/jenis/delete?id=" +id;
 	}
 </script>
 

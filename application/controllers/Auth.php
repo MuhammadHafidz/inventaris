@@ -65,10 +65,10 @@ class auth extends CI_Controller {
         redirect('users/dashboard','refresh');
         break;
       case 2 :
-
+        redirect('admin/dashboard','refresh');
         break;
       case 3 :
-
+        redirect('pimpinan/dashboard','refresh');
         break;
       default :
         break;

@@ -118,7 +118,7 @@
 																		<td class="process">
 																				
 																				<button name="update" type="button" class="btn btn-outline-warning" onclick="showUpdate('<?php echo $id;?>','<?php echo $name;?>')">
-                                        <i class="fa fa-trash "></i>&nbsp; Update</button>
+                                        <i class="fas fa-edit"></i>&nbsp; Update</button>
                                         
 																				
 																				<button name="delete" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mediumModal" onclick="showDelete('<?php echo $id;?>','<?php echo $name;?>')">

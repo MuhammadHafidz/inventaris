@@ -266,7 +266,7 @@
 																		<td class="process">
 																				
 																				<button name="update" type="button" class="btn btn-outline-warning"  onclick="showUpdate('<?php echo $id;?>', '<?php echo $name;?>', '<?php echo $result->ID_JENIS;?>',<?php echo $result->ID_KONDISI;?>,<?php echo $result->ID_RUANG;?>,<?php echo $result->JUMLAH;?>,'<?php echo $result->SATUAN;?>', '<?php echo $result->KETERANGAN;?>')">
-                                        <i class="fa fa-trash "></i>&nbsp; Update</button>
+                                        <i class="fas fa-edit "></i>&nbsp; Update</button>
                                         
 																				
 																				<button name="delete" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mediumModal" onclick="showDelete('<?php echo $id;?>','<?php echo $name;?>')">

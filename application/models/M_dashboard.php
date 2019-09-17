@@ -18,6 +18,11 @@ class M_dashboard extends CI_Model {
     return $this->db->count_all('gedung');
   }
 
+  public function getCountUsers()
+  {
+    return $this->db->count_all('users');
+  }
+
   public function getCountRuang()
   {
     return $this->db->count_all('ruang');    

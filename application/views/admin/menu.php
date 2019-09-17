@@ -14,7 +14,7 @@
                                 <i class="fas fa-table"></i>Ruang</a>
                         </li>
                         <li>
-                            <a href="ruang">
+                            <a href="inventaris">
                                 <i class="fas fa-check-square"></i>Inventaris</a>
                         </li>
                         <li>
@@ -22,11 +22,11 @@
                                 <i class="fas fa-book"></i>Peminjaman</a>
                         </li>
                         <li>
-                            <a href="ruang">
+                            <a href="users">
                                 <i class="fas fa-user"></i>Users</a>
                         </li>
                         <li>
-                            <a href="ruang">
+                            <a href="kondisi">
                                 <i class="fas fa-search-plus"></i>Kondisi Invetori</a>
                         </li>
                     </ul>

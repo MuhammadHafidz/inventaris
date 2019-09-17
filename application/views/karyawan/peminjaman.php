@@ -203,7 +203,7 @@
 																					?>
 																					<button name="update" type="button" class="btn btn-outline-warning" onclick="showUpdateRuang('<?php
 																			echo $id;?>','<?php echo $result->NAMA_PRUANG;?>','<?php echo $result->ID_RUANG;?>','<?php echo $result->EMAIL_PRUANG;?>','<?php echo $result->KETERANGAN_PRUANG;?>','<?php echo $result->PRUANG_IN;?>','<?php echo $result->PRUANG_IN;?>','<?php echo $result->PRUANG_OUT;?>','<?php echo $result->STATUS_PRUANG;?>')">
-																					<i class="fa fa-trash "></i>&nbsp; Update</button>
+																					<i class="fas fa-edit"></i>&nbsp; Update</button>
 																					<?php }?>
 																					
 																					<button name="delete" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mediumModal" onclick="showDelete('<?php
@@ -263,7 +263,7 @@
 																					?>
 																					<button name="update" type="button" class="btn btn-outline-warning" onclick="showUpdateBarang('<?php
 																			echo $id;?>','<?php echo $result->NAMA_PBARANG;?>','<?php echo $result->ID_BARANG;?>','<?php echo $result->EMAIL_PBARANG;?>','<?php echo $result->KETERANGAN_PBARANG;?>','<?php echo $result->PBARANG_IN;?>','<?php echo $result->PBARANG_IN;?>','<?php echo $result->PBARANG_OUT;?>','<?php echo $result->STATUS_PBARANG;?>')">
-																					<i class="fa fa-trash "></i>&nbsp; Update</button>
+																					<i class="fas fa-edit"></i>&nbsp; Update</button>
 																					<?php }?>
 																					
 																					<button name="delete" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#mediumModal" onclick="showDelete('<?php
