@@ -34,7 +34,7 @@
 								<strong>Update</strong> Kondisi
 						</div>
 						<div class="card-body card-block">
-							<form action="<?php echo base_url()?>users/jenis/update" method="POST" class="form-horizontal">
+							<form action="<?php echo base_url()?>admin/kondisi/update" method="POST" class="form-horizontal">
 								<div class="row form-group">
 									<div class="col col-md-3">
 										<label for="hf-email" class=" form-control-label">ID  </label>
@@ -48,7 +48,7 @@
 										<label for="hf-email" class=" form-control-label">Kondisi</label>
 									</div>
 									<div class="col-12 col-md-9">
-										<input type="text" id="update_kondisi" name="kondisi" placeholder="ex : Meja" class="form-control" required>
+										<input type="text" id="update_kondisi" name="kondisi" placeholder="ex : Baik" class="form-control" required>
 									</div>
 								</div>
 
@@ -70,13 +70,13 @@
 									<strong>Add</strong> New Kondisi
 							</div>
 							<div class="card-body card-block">
-									<form action="<?php echo base_url()?>users/jenis/add" method="POST" class="form-horizontal">
+									<form action="<?php echo base_url()?>admin/kondisi/add" method="POST" class="form-horizontal">
 											<div class="row form-group">
 													<div class="col col-md-3">
 															<label for="hf-email" class=" form-control-label">Kondisi</label>
 													</div>
 													<div class="col-12 col-md-9">
-															<input type="text" id="hf-email" name="kondisi" placeholder="ex : Kursi" class="form-control" required>
+															<input type="text" id="hf-email" name="kondisi" placeholder="ex : Baik" class="form-control" required>
 													</div>
 											</div>
 							</div>
@@ -182,7 +182,7 @@
 
 	function delete_data() {
 		id = document.getElementById("id_delete").innerHTML;
-		window.location.href = "<?php echo base_url()?>users/jenis/delete?id=" +id;
+		window.location.href = "<?php echo base_url()?>admin/kondisi/delete?id=" +id;
 	}
 </script>
 

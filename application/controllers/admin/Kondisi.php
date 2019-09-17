@@ -17,7 +17,7 @@ class Kondisi extends CI_Controller {
     parent::__construct();
     $this->load->model('M_kondisi'); 
     
-    if (!$this->session->login) {
+    if (!$this->session->login || $this->session->role != 3) {
       
       redirect('auth','refresh');
       

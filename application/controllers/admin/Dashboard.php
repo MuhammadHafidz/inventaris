@@ -20,11 +20,13 @@ class Dashboard extends CI_Controller {
     parent::__construct();
     $this->load->model('M_dashboard'); 
 
-    if (!$this->session->login) {
+    if (!$this->session->login || $this->session->role != 2) {
       
       redirect('auth','refresh');
       
     }
+    $this->data['username'] = $this->session->name;    
+
   }
 
   public function index()
