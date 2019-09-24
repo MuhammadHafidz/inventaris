@@ -38,90 +38,87 @@
 							</div>
 						</div>
 						<div class="row m-t-25">
-              <div class="col-lg-12" >
-                  <div class="au-card m-b-30" >
-                      <div class="au-card-inner" >
-                          <h3 class="title-2 m-b-40">Peminjaman</h3>
-                          <canvas id="sales-chart" ></canvas>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="au-card m-b-30">
-                      <div class="au-card-inner">
-                        <h3 class="title-2 m-b-40">Inventaris</h3>
-                        <canvas id="barChart"></canvas>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="au-card m-b-30">
-                      <div class="au-card-inner">
-                        <h3 class="title-2 m-b-40">Kondisi Inventaris</h3>
-                        <canvas id="doughutChart"></canvas>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-12">
-                  <div class="au-card m-b-30">
-                      <div class="au-card-inner" >
-                        <h3 class="title-2 m-b-40">Kondisi Inventaris</h3>
-                        <canvas id="myChart"></canvas>
-                      </div>
-                  </div>
-              </div>
+							<div class="col-lg-6">
+								<div class="au-card m-b-30">
+									<div class="au-card-inner">
+										<h3 class="title-2 m-b-40">Peminjaman</h3>
+										<canvas id="my-chart"></canvas>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="au-card m-b-30">
+									<div class="au-card-inner">
+										<h3 class="title-2 m-b-40">Inventaris</h3>
+										<canvas id="barChart"></canvas>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="au-card m-b-30">
+									<div class="au-card-inner">
+										<h3 class="title-2 m-b-40">Kondisi Inventaris</h3>
+										<canvas id="doughutChart"></canvas>
+									</div>
+								</div>
+							</div>
 						</div>
-              
-						
-						
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
-        </div>
+						<!-- END MAIN CONTENT-->
+						<!-- END PAGE CONTAINER-->
+					</div>
 
-    </div>
+				</div>
 
 
-  <?php $this->load->view('end-js');?>
-  <!-- Jquery JS-->
-  <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor: [
-                'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1
-        },{
-          label: '# of Votes',
-            data: [20, 29, 5, 7,8, 1],
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor: [
-                'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
+				<?php $this->load->view('end-js');?>
+				<!-- Jquery JS-->
+				<script>
+					var ctx = document.getElementById('my-chart').getContext('2d');
+					var myChart = new Chart(ctx, {
+						type: 'line',
+						data: {
+							labels: [<?php 
+							for($i = date('d') - 10 ; $i<=date('d')+5 ; $i++ ){
+								echo $i ." , ";
+							}
+								// foreach ($c_pruang as $key) {
+								// 	echo $key->day ." , ";
+								// }
+								?>],
+							datasets: [{
+								label: 'Ruang',
+								data: [<?php 
+								for ($i=date('d') - 10; $i <=date('d') + 5; $i++) { 
+									$data = 0;
+									foreach ($c_pruang as $key) {
+										if ($key->day == $i) {
+											$data = $key->cnt;
+										}
+									}
+									echo $data ." ,";
+								}
+								
+								?>],
+								backgroundColor: [
+									'rgba(54, 162, 235, 0.2)'
+								],
+								borderColor: [
+									'rgba(54, 162, 235, 1)',
+								],
+								borderWidth: 1
+							}]
+						},
+						options: {
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true
+									}
+								}]
+							}
+						}
+					});
+				</script>
 
 </body>
 

@@ -349,7 +349,7 @@
 				document.getElementById("name").value = name;
 				document.getElementById("ruang").value = ruang;
 				document.getElementById("email").value = email;
-				document.getElementById("keterangan").value = keterangan;
+				document.getElementById("keterangan").innerHTML = keterangan;
 				var time = mulai.split(" ");
 				document.getElementById("date_in").value = time[0];
 				document.getElementById("time_in").value = time[1];

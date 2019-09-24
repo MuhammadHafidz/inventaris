@@ -57,15 +57,16 @@ class Dashboard extends CI_Controller {
       'PRUANG_OUT' => $this->input->post('date_out') ." " .$this->input->post('time_out'), 
       'STATUS_PRUANG' => 0
     ];
-    
-    $chkData = $this->M_pruang->chkPruang($data);
-    if ($chkData != null) {
-      echo "<script>alert('Ruang Telah dipinjam dari ".$chkData->PRUANG_IN." sampai ".$chkData->PRUANG_OUT."')</script>";
-      echo "<script>alert('Peminjaman Ruang GAGAL !')</script>";
+    if ($data["PRUANG_OUT"] >= $data["PRUANG_OUT"]) {    
+      $chkData = $this->M_pruang->chkPruang($data);
+      if ($chkData != null) {
+        echo "<script>alert('Ruang Telah dipinjam dari ".$chkData->PRUANG_IN." sampai ".$chkData->PRUANG_OUT."')</script>";
+        echo "<script>alert('Peminjaman Ruang GAGAL !')</script>";
 
-    }else {
-      if ($this->M_pruang->add($data)) {
-        echo "<script>alert('Peminjaman Ruang Sukses')</script>";
+      }else {
+        if ($this->M_pruang->add($data)) {
+          echo "<script>alert('Peminjaman Ruang Sukses')</script>";
+        }
       }
     }
     redirect('users/dashboard','refresh');    
@@ -82,17 +83,22 @@ class Dashboard extends CI_Controller {
       'PBARANG_OUT' => $this->input->post('date_out') ." " .$this->input->post('time_out'), 
       'STATUS_PBARANG' => 0
     ];
-    $chkData = $this->M_pbarang->chkPbarang($data);
-    if ($chkData != null) {
-      echo "<script>alert('Barang Telah dipinjam dari ".$chkData->PBARANG_IN." sampai ".$chkData->PBARANG_OUT."')</script>";
-      echo "<script>alert('Peminjaman Barang GAGAL !')</script>";
+    if ($data["PBARANG_OUT"] >= $data["PBARANG_OUT"]) {
+      $chkData = $this->M_pbarang->chkPbarang($data);
+      if ($chkData != null) {
+        echo "<script>alert('Barang Telah dipinjam dari ".$chkData->PBARANG_IN." sampai ".$chkData->PBARANG_OUT."')</script>";
+        echo "<script>alert('Peminjaman Barang GAGAL !')</script>";
 
-      # code...
-    }else {
-      if ($this->M_pbarang->add($data)) {
-        echo "<script>alert('Peminjaman Barang Sukses')</script>";
+        # code...
+      }else {
+        if ($this->M_pbarang->add($data)) {
+          echo "<script>alert('Peminjaman Barang Sukses')</script>";
+        }
       }
+    }else {
+      echo "<script>alert('Peminjaman Barang GAGAL !')</script>";
     }
+    
     redirect('users/dashboard','refresh');    
 
     

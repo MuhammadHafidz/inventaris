@@ -46,6 +46,11 @@
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                                 
                             </form>
+                        </div> 
+                        <div class="row" style="text-align : right">
+                            <div class="col-lg-12">
+                            <a href="checkruang">Cek Peminjaman Ruang</a>
+                            </div>
                         </div>
                     </div>
                 </div>

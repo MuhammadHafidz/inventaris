@@ -11,6 +11,26 @@ class M_pruang extends CI_Model {
     $this->db->join('ruang','ruang.ID_RUANG = p_ruang.ID_RUANG');
     return $this->db->get()->result();
   }
+
+  public function getPruangNext()
+  { 
+    $this->db->select('*');
+    $this->db->from('p_ruang');
+    $this->db->join('ruang','ruang.ID_RUANG = p_ruang.ID_RUANG');
+    $this->db->where('PRUANG_IN >', date("Y/m/d"));
+    return $this->db->get()->result();
+  }
+
+  public function getwherePruang($id)
+  { 
+    $this->db->select('*');
+    $this->db->from('p_ruang');
+    $this->db->where('ID_PRUANG', $id);
+    $this->db->join('ruang','ruang.ID_RUANG = p_ruang.ID_RUANG');
+    $this->db->join('gedung','gedung.ID_GEDUNG = ruang.ID_GEDUNG');
+    return $this->db->get()->row();
+  }
+
   public function add($data)
   {
     return $this->db->insert('p_ruang',$data);    

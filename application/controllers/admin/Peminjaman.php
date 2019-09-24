@@ -18,7 +18,7 @@ class Peminjaman extends CI_Controller {
     $this->load->model('M_pruang'); 
     $this->load->model('M_pbarang'); 
     
-    if (!$this->session->login || $this->session->role != 3) {
+    if (!$this->session->login || $this->session->role != 2) {
       
       redirect('auth','refresh');
       

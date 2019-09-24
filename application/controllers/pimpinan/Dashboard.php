@@ -22,20 +22,25 @@ class Dashboard extends CI_Controller {
     parent::__construct();
     $this->load->model('M_dashboard'); 
 
-    // if (!$this->session->login || $this->session->role != 3) {
+    if (!$this->session->login || $this->session->role != 3) {
       
-    //   redirect('auth','refresh');
+      redirect('auth','refresh');
       
-    // }
-    $this->data['username'] = $this->session->name;    
-
+    }
+    $this->data['username'] = $this->session->name;
   }
   
 
   public function index()
   {
+    $this->data['c_pruang'] = $this->M_dashboard->getCountPRuangTime();
+    $this->data['c_pbarang'] = $this->M_dashboard->getCountPBarangTime();
     $this->load->view('pimpinan/dashboard',$this->data);
   }
+
+  
+
+  
 
 }
 
