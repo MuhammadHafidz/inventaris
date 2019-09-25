@@ -27,14 +27,14 @@
 										</h5>
 									</div>
 								</div>
-								<div class="account-dropdown__body">
+								<!-- <div class="account-dropdown__body">
 
 									<div class="account-dropdown__item">
 										<a href="#">
 											<i class="zmdi zmdi-settings"></i>Setting</a>
 									</div>
 
-								</div>
+								</div> -->
 								<div class="account-dropdown__footer">
 									<a href="<?php echo base_url()?>/auth/logout">
 										<i class="zmdi zmdi-power"></i>Logout</a>

@@ -44,7 +44,7 @@ class M_dashboard extends CI_Model {
   {
     $this->db->select('count(ID_PRUANG) as cnt, DAY(PRUANG_IN) as day');
     $this->db->from('p_ruang');
-    $this->db->where('PRUANG_IN >', 'date_sub(now(), interval 20 day)');
+    $this->db->where('PRUANG_IN >', 'date_sub(now(), interval 10 day)');
     $this->db->group_by('PRUANG_IN');
     return $this->db->get()->result();
   }
@@ -54,6 +54,26 @@ class M_dashboard extends CI_Model {
     $this->db->from('p_barang');
     $this->db->where('PBARANG_IN >', 'date_sub(now(), interval 10 day)');
     $this->db->group_by('PBARANG_IN');
+    return $this->db->get()->result();
+  }
+
+  public function getCountBarangByRuang()
+  {
+    $this->db->select('count(barang.ID_BARANG) as count, NAMA_RUANG');
+    $this->db->from('barang');
+    // $this->db->where('barang.ID_RUANG', 'ruang.ID_RUANG');
+    // $this->db->group_by('barang.ID_RUANG');
+    $this->db->join('ruang','ruang.ID_RUANG = barang.ID_RUANG' );    
+    return $this->db->get()->result();
+  }
+
+  public function getCountBarangByKondisi()
+  {
+    $this->db->select('count(barang.ID_BARANG) as count, Kondisi');
+    $this->db->from('barang');
+    // $this->db->where('barang.ID_RUANG', 'ruang.ID_RUANG');
+    // $this->db->group_by('barang.ID_RUANG');
+    $this->db->join('kondisi','kondisi.ID_KONDISI = barang.ID_KONDISI' );    
     return $this->db->get()->result();
   }
 }

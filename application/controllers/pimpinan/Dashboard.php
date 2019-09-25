@@ -35,12 +35,10 @@ class Dashboard extends CI_Controller {
   {
     $this->data['c_pruang'] = $this->M_dashboard->getCountPRuangTime();
     $this->data['c_pbarang'] = $this->M_dashboard->getCountPBarangTime();
+    $this->data['c_barang'] = $this->M_dashboard->getCountBarangByRuang();
+    $this->data['c_kbarang'] = $this->M_dashboard->getCountBarangByKondisi();
     $this->load->view('pimpinan/dashboard',$this->data);
   }
-
-  
-
-  
 
 }
 
