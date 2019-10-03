@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_pruang extends CI_Model {
@@ -54,8 +53,4 @@ class M_pruang extends CI_Model {
   }
 
 }
-
-/* End of file M_pruang.php */
-
-
 ?>

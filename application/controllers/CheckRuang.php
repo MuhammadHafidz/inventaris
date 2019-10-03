@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class CheckRuang extends CI_Controller {
@@ -9,7 +7,6 @@ class CheckRuang extends CI_Controller {
     'username' => 'custom',
     'data' => []
   ];
-
   
   public function __construct()
   {
@@ -26,8 +23,5 @@ class CheckRuang extends CI_Controller {
   }
 
 }
-
 /* End of file CheckRuang.php */
-
-
 ?>

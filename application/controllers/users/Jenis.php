@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jenis extends CI_Controller {
@@ -11,16 +9,13 @@ class Jenis extends CI_Controller {
     'data' => []
   ];
 
-  
   public function __construct()
   {
     parent::__construct();
     $this->load->model('M_jenis'); 
     
-    if (!$this->session->login) {
-      
-      redirect('auth','refresh');
-      
+    if (!$this->session->login) {     
+      redirect('auth','refresh');      
     }
     $this->data['username'] = $this->session->name;    
   }
@@ -28,10 +23,8 @@ class Jenis extends CI_Controller {
   public function index()
   { 
     $this->data['data'] = $this->M_jenis->getJenis();
-    $this->load->view('karyawan/jenis_barang',$this->data);
-    
+    $this->load->view('karyawan/jenis_barang',$this->data);    
   }
-
 
   public function update()
   {
@@ -62,8 +55,5 @@ class Jenis extends CI_Controller {
   }
 
 }
-
 /* End of file Ruang.php */
-
-
 ?>

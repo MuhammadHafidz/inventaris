@@ -15,7 +15,6 @@ class M_users extends CI_Model {
   public function getIdUsers($id)
   {
     return $this->db->from('users')->where('ID_USERS',$id)->get()->row();
-
   }
 
   public function add($data)
@@ -34,11 +33,5 @@ class M_users extends CI_Model {
     $this->db->where('ID_USERS', $data['ID_USERS']);
     return $this->db->update('users', $data);
   }
-
-
 }
-
-/* End of file Users.php */
-
-
 ?>

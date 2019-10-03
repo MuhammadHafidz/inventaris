@@ -11,7 +11,6 @@ class Inventaris extends CI_Controller {
     'table' => 'barang',
     'data' => []
   ];
-
   
   public function __construct()
   {
@@ -19,9 +18,7 @@ class Inventaris extends CI_Controller {
     $this->load->model('M_barang'); 
 
     if (!$this->session->login || $this->session->role != 2) {
-      
-      redirect('auth','refresh');
-      
+      redirect('auth','refresh');  
     }
     $this->data['username'] = $this->session->name;    
   }
@@ -33,10 +30,7 @@ class Inventaris extends CI_Controller {
     
   }
 
-
 }
 
 /* End of file Ruang.php */
-
-
 ?>

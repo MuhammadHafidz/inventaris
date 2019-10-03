@@ -1,15 +1,10 @@
 <?php 
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_gedung extends CI_Model {
-
-  
   public function __construct()
   {
     parent::__construct();
-    
   }
 
   public function getGedung()
@@ -29,6 +24,9 @@ class M_gedung extends CI_Model {
 
   public function delete($id)
   {
+    $this->db->set('ID_GEDUNG', null);
+    $this->db->where('ID_GEDUNG', $id);
+    $this->db->update('ruang');
     $this->db->where('ID_GEDUNG', $id);
     return $this->db->delete('gedung');
   }
@@ -44,8 +42,4 @@ class M_gedung extends CI_Model {
   
 
 }
-
-/* End of file M_gedung.php */
-
-
 ?>

@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ruang extends CI_Controller {
@@ -11,7 +9,6 @@ class Ruang extends CI_Controller {
     'data' => []
   ];
 
-  
   public function __construct()
   {
     parent::__construct();
@@ -33,7 +30,6 @@ class Ruang extends CI_Controller {
     $this->load->view('karyawan/ruang',$this->data);
     
   }
-
 
   public function update()
   {
@@ -66,8 +62,5 @@ class Ruang extends CI_Controller {
   }
 
 }
-
 /* End of file Ruang.php */
-
-
 ?>

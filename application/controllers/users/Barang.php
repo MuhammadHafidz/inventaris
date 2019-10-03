@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Barang extends CI_Controller {
@@ -12,7 +10,6 @@ class Barang extends CI_Controller {
     'data' => []
   ];
 
-  
   public function __construct()
   {
     parent::__construct();
@@ -21,11 +18,8 @@ class Barang extends CI_Controller {
     $this->load->model('M_jenis'); 
     $this->load->model('M_kondisi'); 
     $this->load->model('M_log'); 
-    
-    if (!$this->session->login) {
-      
+    if (!$this->session->login) {      
       redirect('auth','refresh');
-      
     }
     $this->data['username'] = $this->session->name;    
   }
@@ -94,6 +88,4 @@ class Barang extends CI_Controller {
 }
 
 /* End of file Ruang.php */
-
-
 ?>

@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Gedung extends CI_Controller {
@@ -10,7 +8,6 @@ class Gedung extends CI_Controller {
     'data' => []
   ];
 
-  
   public function __construct()
   {
     parent::__construct();
@@ -25,12 +22,8 @@ class Gedung extends CI_Controller {
   { 
     $this->data['data'] = $this->M_gedung->getGedung();
     $this->load->view('admin/gedung',$this->data);
-    
   }
-
 }
 
 /* End of file Gedung.php */
-
-
 ?>

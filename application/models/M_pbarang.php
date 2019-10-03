@@ -49,8 +49,4 @@ class M_pbarang extends CI_Model {
   }
 
 }
-
-/* End of file M_pbarang.php */
-
-
 ?>

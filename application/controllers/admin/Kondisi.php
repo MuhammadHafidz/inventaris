@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kondisi extends CI_Controller {
@@ -10,17 +8,14 @@ class Kondisi extends CI_Controller {
     'username' => 'custom',
     'data' => []
   ];
-
   
   public function __construct()
   {
     parent::__construct();
     $this->load->model('M_kondisi'); 
     
-    if (!$this->session->login || $this->session->role != 2) {
-      
+    if (!$this->session->login || $this->session->role != 2) {   
       redirect('auth','refresh');
-      
     }
     $this->data['username'] = $this->session->name;    
   }
@@ -29,9 +24,7 @@ class Kondisi extends CI_Controller {
   { 
     $this->data['data'] = $this->M_kondisi->getKondisi();
     $this->load->view('admin/kondisi',$this->data);
-    
   }
-
 
   public function update()
   {
@@ -63,6 +56,4 @@ class Kondisi extends CI_Controller {
 }
 
 /* End of file Ruang.php */
-
-
 ?>

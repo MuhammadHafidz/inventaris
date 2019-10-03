@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Peminjaman extends CI_Controller {
@@ -10,7 +8,6 @@ class Peminjaman extends CI_Controller {
     'username' => 'custom',
     'data' => []
   ];
-
   
   public function __construct()
   {
@@ -39,7 +36,6 @@ class Peminjaman extends CI_Controller {
     $this->load->view('karyawan/peminjaman',$this->data);
     
   }
-
 
   public function updateRuang()
   {
@@ -79,7 +75,6 @@ class Peminjaman extends CI_Controller {
     }
   }
 
-
   public function deleteRuang()
   {
     $id = $this->input->get('id');
@@ -93,12 +88,7 @@ class Peminjaman extends CI_Controller {
     $this->M_pbarang->delete($id);
     redirect('users/peminjaman','refresh');
   }
-
-  
-
 }
 
 /* End of file Ruang.php */
-
-
 ?>

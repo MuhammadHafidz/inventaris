@@ -1,17 +1,12 @@
 <?php
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_dashboard extends CI_Model {
 
-  
   public function __construct()
   {
     parent::__construct();
-    
   }
-  
 
   public function getCountGedung()
   {
@@ -61,8 +56,6 @@ class M_dashboard extends CI_Model {
   {
     $this->db->select('count(barang.ID_BARANG) as count, NAMA_RUANG');
     $this->db->from('barang');
-    // $this->db->where('barang.ID_RUANG', 'ruang.ID_RUANG');
-    // $this->db->group_by('barang.ID_RUANG');
     $this->db->join('ruang','ruang.ID_RUANG = barang.ID_RUANG' );    
     return $this->db->get()->result();
   }
@@ -71,14 +64,9 @@ class M_dashboard extends CI_Model {
   {
     $this->db->select('count(barang.ID_BARANG) as count, Kondisi');
     $this->db->from('barang');
-    // $this->db->where('barang.ID_RUANG', 'ruang.ID_RUANG');
-    // $this->db->group_by('barang.ID_RUANG');
     $this->db->join('kondisi','kondisi.ID_KONDISI = barang.ID_KONDISI' );    
     return $this->db->get()->result();
   }
 }
-
-/* End of file dashboard.php */
-
 
 ?>

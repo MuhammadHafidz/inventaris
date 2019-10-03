@@ -10,7 +10,6 @@ class Users extends CI_Controller {
     'username' => 'custom',
     'data' => []
   ];
-
   
   public function __construct()
   {
@@ -18,9 +17,7 @@ class Users extends CI_Controller {
     $this->load->model('M_users'); 
     
     if (!$this->session->login || $this->session->role != 2) {
-      
-      redirect('auth','refresh');
-      
+      redirect('auth','refresh');  
     }
     $this->data['username'] = $this->session->name;    
   }
@@ -31,7 +28,6 @@ class Users extends CI_Controller {
     $this->data['role'] = $this->db->get('role')->result();
     $this->load->view('admin/users',$this->data);
     // echo json_encode($this->data['data']);
-    
   }
 
 
@@ -53,13 +49,6 @@ class Users extends CI_Controller {
   public function updatepassword()
   {
     $id = $this->input->post('id');
-    // $chck = $this->M_users->getIdUsers($id);
-    // if (!$chck) {
-    //   if (password_verify($this->input->post('oldpassword'),$chck->PASSWORD)) {
-    //   }else {
-    //     echo "<script>alert('Password Salah')</script>";        # code...
-    //   }
-    // }
     $data = [
       'ID_USERS' => $id,
       'PASSWORD' => password_hash($this->input->post('password'),PASSWORD_BCRYPT)
@@ -93,6 +82,4 @@ class Users extends CI_Controller {
 }
 
 /* End of file Ruang.php */
-
-
 ?>

@@ -1,6 +1,4 @@
 <?php 
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_jenis extends CI_Model {
@@ -30,13 +28,12 @@ class M_jenis extends CI_Model {
   }
   public function delete($id)
   {
+    $this->db->set('ID_JENIS', null);
+    $this->db->where('ID_JENIS', $id);
+    $this->db->update('barang');
     $this->db->where('KODE_JENIS', $id);
     return $this->db->delete('jenis_barang');
   }
 
 }
-
-/* End of file M_kondisi.php */
-
-
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Peminjaman extends CI_Controller {
@@ -10,7 +9,6 @@ class Peminjaman extends CI_Controller {
     'username' => 'custom',
     'data' => []
   ];
-
   
   public function __construct()
   {
@@ -31,16 +29,8 @@ class Peminjaman extends CI_Controller {
     $this->data['pruang'] = $this->M_pruang->getPruang();
     $this->data['pbarang'] = $this->M_pbarang->getPbarang();
     // echo json_encode($this->data['ruang']) ;
-    $this->load->view('admin/peminjaman',$this->data);
-    
+    $this->load->view('admin/peminjaman',$this->data);    
   }
-
-
-
-
 }
-
 /* End of file Ruang.php */
-
-
 ?>
